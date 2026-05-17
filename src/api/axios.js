@@ -56,6 +56,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
+    console.log(apiConfig.API_BASE_URL);
   }
 );
 
