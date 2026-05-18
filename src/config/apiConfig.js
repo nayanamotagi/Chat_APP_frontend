@@ -1,11 +1,9 @@
-import axios from 'axios';
-import { getApiBaseUrl } from '../config/apiConfig';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://chat-app-backend-1-6m8p.onrender.com';
 
-const api = axios.create({
-    baseURL: getApiBaseUrl(),
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+export function getApiBaseUrl() {
+    return API_BASE_URL;
+}
 
-export default api;
+export default {
+    API_BASE_URL,
+};

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { authAPI } from '../api/auth';
 import toast from 'react-hot-toast';
-import { getApiBaseUrl } from '../config/apiConfig';
 import { FiMail, FiLock, FiUser, FiPhone } from 'react-icons/fi';
 
 export default function Login() {
