@@ -3,10 +3,7 @@ import { useAuthStore } from '../store/authStore';
 import apiConfig from '../config/apiConfig';
 
 const api = axios.create({
-  baseURL: apiConfig.API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  baseURL: process.env.VITE_API_URL || "https://chat-app-backend-1-6m8p.onrender.com",
 });
 
 api.interceptors.request.use(

@@ -1,7 +1,11 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import axios from 'axios';
+import { getApiBaseUrl } from '../config/apiConfig';
 
-const apiConfig = {
-    API_BASE_URL
-};
+const api = axios.create({
+    baseURL: getApiBaseUrl(),
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
 
-export default apiConfig;
+export default api;
