@@ -40,7 +40,7 @@ export default function Login() {
 
     setLoading(true);
     try {
-      const response = await authAPI.register(email, password, displayName, username || undefined, phoneNumber || undefined);
+      const response = await authAPI.register(email, password, displayName, username || null, phoneNumber || null);
       const { user, tokens } = response.data;
       setAuth(user, tokens.accessToken, tokens.refreshToken);
       toast.success('Registration successful!');
@@ -114,8 +114,8 @@ export default function Login() {
                 setConfirmPassword('');
               }}
               className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${mode === 'login'
-                  ? 'bg-primary-500 text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                ? 'bg-primary-500 text-white'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
             >
               Login
@@ -132,8 +132,8 @@ export default function Login() {
                 setConfirmPassword('');
               }}
               className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${mode === 'register'
-                  ? 'bg-primary-500 text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                ? 'bg-primary-500 text-white'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
             >
               Register
