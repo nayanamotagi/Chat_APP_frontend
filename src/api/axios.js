@@ -9,7 +9,7 @@ const regapi = axios.create({
   },
 });
 
-api.interceptors.request.use(
+regapi.interceptors.request.use(
   (config) => {
     const token = useAuthStore.getState().token;
     if (token) {
@@ -20,7 +20,7 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-api.interceptors.response.use(
+regapi.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
@@ -46,7 +46,7 @@ api.interceptors.response.use(
           );
 
           originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-          return api(originalRequest);
+          return regapi(originalRequest);
         }
       } catch (refreshError) {
         useAuthStore.getState().logout();
@@ -60,5 +60,5 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default regapi;
 
